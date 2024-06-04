@@ -7,7 +7,7 @@ const app = express();
 
 
 app.use(cors({
-  origin:"https://sapiensf.onrender.com/",
+  origin:"https://sapiensf.onrender.com",
   credentials:true,
 }))
 
