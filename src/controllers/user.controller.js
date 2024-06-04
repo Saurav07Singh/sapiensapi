@@ -2,12 +2,12 @@ import { User } from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 const resgisterUser = async (req, res) => {
   const { username, password } = req.body;
- // console.log(username, password);
+
   if (!username || !password)
     return res.status(201).json({ message: "Error!!!" });
 
   const checkExistingUser = User.findOne({ username: username });
-  //console.log(checkExistingUser.length)
+  
   if (!checkExistingUser) return res.status(409).send("Member already exists!");
 
   try {
@@ -19,7 +19,7 @@ const resgisterUser = async (req, res) => {
     res.json(newUser._id);
   } catch (error) {
     res.send(error.message);
-    // console.log(err)
+    
   }
 };
 
